@@ -32,10 +32,11 @@ void cleanStack(stack_t **stack)
 {
 	stack_t *current = *stack;
 	
-	for (; current; current *stack)
+	while ( *stack)
 	{
-		*stack = (*stack)->next;
-		free(current);
+		current = (*stack)->next;
+		free(*stack);
+		*stack = current;
 	}
 	fclose(global.fd);
 	free(global.line);
